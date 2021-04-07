@@ -2,15 +2,16 @@
 
 ---
 
-## [v0.0.1](https://github.com/yungshenglu/Dcard-Reader/releases/tag/v0.0.1)
+## [v0.0.1](https://github.com/yungshenglu/WeatherLite/releases/tag/v0.0.1)
 
 - Features
-  - Enable to view the list of the latest popular posts
-  - Enable to view the forum, the topics, and the count of comments for each post
-  - Enable to view the gender and the role of the author
-  - Enable to view the content of each post in modal
-  - Enable to load more posts via infinite scrolling
-  - Enable to reload the list of posts
+  - Enable to view the current weather information by searching different city
+    - Temperature (including minimum and maximum)
+    - Air pressure
+    - Wind speed
+    - Humidity
+  - Enable to view the minimum and the maximum temperature in the applicable dates in bar chart
+  - Enable to view the humidity in the applicable dates in pie chart
 
 ---
 

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import dayjs from 'dayjs'
+import AntSkeleton from '@C/AntSkeleton';
 import CusInputSearch from '@C/CusInputSearch';
 import CusDigestText from '@C/CusDigestText';
 import CusCurrentWeather from '@C/CusCurrentWeather';
@@ -15,6 +17,9 @@ import {
 
 
 export function CusWeatherCard() {
+  const [isLoading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
+  const [lastRefresh, setLastRefresh] = useState('');
   const [weatherData, setWeatherData] = useState([]);
   const [todayData, setTodayData] = useState<any>(null);
   const [minTempList, setMinTempList] = useState<any>([]);
@@ -60,11 +65,14 @@ export function CusWeatherCard() {
       });
       setHumidityList(humidity);
     }
+
+    const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
+    setLastRefresh(now);
   }, [weatherData]);
 
   // Event handler
-  const handleFetchData = (data: any) => {
-    console.log('data: ', data);
+  const handleFetchData = (data: any, isLoading: boolean) => {
+    setLoading(isLoading);
     setWeatherData(data?.consolidated_weather);
     setTodayData(data?.consolidated_weather[0]);
   };
@@ -96,7 +104,19 @@ export function CusWeatherCard() {
         />
         {/* 氣象描述 */}
         <CusDigestText>
-          { todayData?.weather_state_name }
+          {
+            isLoading
+            ? (
+                <AntSkeleton
+                  active={true}
+                  rounded={true}
+                  title={true}
+                  paragraph={false}
+                  width='small'
+                />
+              )
+            : todayData?.weather_state_name
+          }
         </CusDigestText>
         {/* 當前氣象 (氣溫) */}
         <CusCurrentWeather
@@ -123,7 +143,7 @@ export function CusWeatherCard() {
           />
         </StyledMetaBlock>
         {/* 最後更新時間 */}
-        {/* <CusRefreshText text={refreshDate} /> */}
+        <CusRefreshText text={lastRefresh} />
       </StyledWeatherCard>
       <StyledWeatherCard>
         <CusBarChart
