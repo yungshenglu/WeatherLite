@@ -1,0 +1,1 @@
+export { CusChartTitle as default } from './CusChartTitle';

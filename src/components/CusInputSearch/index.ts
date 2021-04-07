@@ -1,0 +1,1 @@
+export { CusInputSearch as default } from './CusInputSearch';
