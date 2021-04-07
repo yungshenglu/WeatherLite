@@ -1,6 +1,6 @@
 # WeatherLite
 
-![](./assets/img/Demo.png)
+![](./src/assets/img/Demo.png)
 
 This repository is a simple weather widget implemented in React with TypeScript. For now, you can view some weather information by searching different city, also you can see some simple charts of minimum maximum temperature (bar chart) and humidity (pie chart), which are redered without using UI component library, via clicking the icon on the widget. :tada:
 
