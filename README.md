@@ -46,8 +46,8 @@ This repository is a simple weather widget implemented in React with TypeScript.
   - Use [CORS](https://www.npmjs.com/package/cors), a Node package for providing a Connect/Express middleware that can be used to enable CORS with various options.
   - You can see the detail of the implementation [here](./app.js)
 - In this repository, we only implement the following two APIs in our server: (The detial is in the following **APIs** section)
-  - `/api/posts&before=:before`: Fetch the list of the posts
-  - `api/post&id=:id`: Fetch the content of the post via post's ID
+  - `/api/woeid=:query`: Fetch the WOEID of this query
+  - `/api/location=:woeid`: Fetch the weather data via WOEID
 
 ### Customize Hooks
 
